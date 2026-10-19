@@ -1,0 +1,19 @@
+{
+  "name": "Alfa Kimya ECS 2027",
+  "short_name": "Alfa ECS",
+  "description": "Stand microsite for Alfa Kimya alkyd resins at European Coatings Show 2027.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F3F6F8",
+  "theme_color": "#0A3260",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

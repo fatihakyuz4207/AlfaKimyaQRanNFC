@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: #09131c;
+  font-family: Outfit, 'Segoe UI', system-ui, sans-serif;
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pb-safe {
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+}
+
+.loop {
+  position: relative;
+  height: 176px;
+  overflow: hidden;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent 28%),
+    linear-gradient(180deg, #d5dee7 0%, #b7c3cf 100%);
+}
+
+.loop-panel {
+  position: absolute;
+  inset: 34px 20px 24px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fbfcfd, #e7edf2);
+  box-shadow: inset 0 0 0 1px rgba(18, 32, 51, 0.08);
+}
+
+.loop-film {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 24px;
+  height: 0;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(180deg, rgba(14, 77, 140, 0.18), #0e4d8c 70%);
+}
+
+.loop.is-water .loop-film {
+  background: linear-gradient(180deg, rgba(27, 122, 69, 0.16), #1b7a45 72%);
+}
+
+.loop-tool {
+  position: absolute;
+  top: 22px;
+  left: 28px;
+  width: 54px;
+  height: 12px;
+  border-radius: 99px;
+  background: #122033;
+  box-shadow: 0 8px 16px rgba(18, 32, 51, 0.18);
+}
+
+.loop-progress {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  left: 12px;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.loop.is-playing .loop-film {
+  animation: film 8s linear infinite;
+}
+
+.loop.is-playing .loop-tool {
+  animation: tool 8s linear infinite;
+}
+
+.loop.is-playing .loop-progress {
+  animation: progress 8s linear infinite;
+}
+
+@keyframes film {
+  0% { height: 0; }
+  72% { height: 118px; }
+  100% { height: 118px; }
+}
+
+@keyframes tool {
+  0% { left: 28px; top: 42px; }
+  72% { left: calc(100% - 86px); top: 126px; }
+  100% { left: 28px; top: 42px; }
+}
+
+@keyframes progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loop.is-playing .loop-film,
+  .loop.is-playing .loop-tool,
+  .loop.is-playing .loop-progress {
+    animation: none;
+  }
+
+  .loop.is-playing .loop-film {
+    height: 72px;
+  }
+}
