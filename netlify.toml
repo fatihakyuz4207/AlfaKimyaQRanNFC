@@ -1,0 +1,4 @@
+[build]
+  base = "alfa-ecs2027"
+  command = "npm ci --include=dev && npm run build"
+  publish = "dist"
